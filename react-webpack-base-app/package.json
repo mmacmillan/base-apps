@@ -1,0 +1,33 @@
+{
+  "name": "react-webpack-base-app-minimal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "webpack_shared_args": "--display-error-details"
+  },
+  "scripts": {
+    "install:webpack": "npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin",
+    "install:babel": "npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react",
+    "install:react": "npm install --save-dev react react-dom react-hot-loader",
+    "build:dev": "webpack --env=dev $npm_package_config_webpack_shared_args",
+    "build:prod": "webpack --env=prod $npm_package_config_webpack_shared_args"
+  },
+  "author": "mikejmacmillan@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
