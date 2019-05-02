@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Layout from './components/layout.jsx'
 
+import css from './css/global.css';
+
 const ROOT_NODE = document.getElementById('root');
 
 function handleSetTitle(title) {
