@@ -1,15 +1,15 @@
-#Minimal React Webpack base app
+# Minimal React Webpack base app
 
 The goal here is to build a minimal React base application, that provides similar functionality to the huge boilerplate projects, in an effort to learn each of the components in the "blackbox" that is a modern toolchain.
 
 The following tools serve as the base for the application:
 
-	##Webpack
+	## Webpack
 	[https://webpack.js.org/guides/getting-started/](https://webpack.js.org/guides/getting-started/)
 	
 	Webpack is the build-system for the application.  It is responsible for transpiling the ES5/6 source code into a version readable by all browsers, in addition to doing things like minification, code splitting, tree shaking, and so much more (webpack is awesome)
 	
-		...###Webpack Dev Server
+		... ### Webpack Dev Server
 		https://webpack.js.org/configuration/dev-server/
 		
 		Webpack dev server is a stop-gap for having to not build a node server to host your static assets on a dev server.  It has features like hot reloading built in, and is configurable.  For your data layer, build a standalone microservice.
