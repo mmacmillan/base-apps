@@ -5,4 +5,20 @@ html, body {
     width: 100%;
 }
 
-body { background-color: #ccc }
+body { 
+    padding: 1rem;
+    font-family: sans-serif;
+}
+
+h1 { margin: .5rem 0; }
+
+fieldset {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 25rem;
+}
+
+fieldset input {
+    width: 100%; 
+}

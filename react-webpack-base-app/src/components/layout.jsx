@@ -32,7 +32,6 @@ class Layout extends React.Component {
                 { this.state.body }
 
                 <fieldset>
-                    <label htmlFor="the-title">Enter a title:</label>
                     <input id="the-title" type="text" value={ this.state.title } onChange={ this.handleChange }/>
                 </fieldset>
             </React.Fragment>

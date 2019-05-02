@@ -32,6 +32,7 @@ module.exports = {
                 loader: ['babel-loader']
             },
 
+            //** this is for bundling the css with the javascript; it will minifiy, etc.  it also allows you to include it via "import css from './css/global.css' (ex)
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
