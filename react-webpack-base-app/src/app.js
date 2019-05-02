@@ -22,5 +22,4 @@ let App = () => (
     />
 );
 
-let render = () => ReactDOM.render(App(), ROOT_NODE);
-render();
+ReactDOM.render(App(), ROOT_NODE);
