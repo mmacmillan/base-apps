@@ -21,4 +21,5 @@ fieldset {
 
 fieldset input {
     width: 100%; 
+    display: block;
 }

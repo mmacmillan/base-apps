@@ -10,20 +10,29 @@ class Layout extends React.Component {
         this.state = {
             title: props.title || '',
             body: props.body || ''
-        }
+        };
 
         //** set the context of the event handlers here; sets the "this" reference
-        this.handleChange = this.handleChange.bind(this);
+        ['handleChange', 'updateTitle', 'updateBody'].forEach(m => { this[m] = this[m].bind(this) });
     }
 
     //** define an event handler for the input's onChange event
-    handleChange(e) {
-        //** set the state, triggering UI update
-        this.setState({ title: e.target.value });
+    handleChange(field, val) {
+        let obj = {};
+        obj[field] = val;
 
+        //** set the state, triggering UI update
+        this.setState(obj);
+    }
+
+    updateTitle(e) {
         //** if defined, trigger a custom event handler on the consumer
         this.props.onSetTitle && this.props.onSetTitle(e.target.value);
+        this.handleChange('title', e.target.value);
     }
+
+    updateBody(e) { this.handleChange('body', e.target.value) }
+
 
     render() {
         return (
@@ -32,7 +41,8 @@ class Layout extends React.Component {
                 { this.state.body }
 
                 <fieldset>
-                    <input id="the-title" type="text" value={ this.state.title } onChange={ this.handleChange }/>
+                    <input id="the-title" type="text" value={ this.state.title } onChange={ this.updateTitle }/>
+                    <input id="the-body" type="text" value={ this.state.body } onChange={ this.updateBody }/>
                 </fieldset>
             </React.Fragment>
         );
