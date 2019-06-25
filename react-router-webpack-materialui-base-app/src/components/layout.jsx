@@ -83,7 +83,7 @@ function Layout(props) {
 
     const Dashboard = () => (
         <React.Fragment>
-            <Typography variant="h1">h1 - Demo Material UI Site</Typography>
+            <Typography variant="h1">h1 - Demo Materail UI Site</Typography>
             <Typography variant="h2">h2 - Demo Material UI Site</Typography>
             <Typography variant="h3">h3 - Demo Material UI Site</Typography>
             <Typography variant="h4">h4 - Demo Material UI Site</Typography>
@@ -100,6 +100,13 @@ function Layout(props) {
         </React.Fragment>
     );
 
+
+    const Users = () => (
+       <React.Fragment> 
+        <h2>Users View</h2>
+       </React.Fragment> 
+    )
+
     return (
         <Router>
             <React.Fragment>
@@ -109,8 +116,8 @@ function Layout(props) {
 
                     <Switch>
                         <Route path="/dashboard" component={ Dashboard } />
-                        <Route path="/users" component={() => (<h2>users</h2>)} />
-                        <Route path="/settings" component={() => (<h2>settings</h2>)} />
+                        <Route path="/users" component={ Users } />
+                        <Route path="/settings" component={() => (<h2>Settings View</h2>)} />
                         <Redirect from="/" to="/dashboard"/>
                     </Switch>
 

@@ -1,0 +1,23 @@
+/* basic layout considerations */
+
+main {
+    background-color: #eee;
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+}
+
+main > .segment { margin: 0 !important }
+
+header.main {
+    flex: 0 0; 
+    margin-bottom: 0;
+}
+
+.content { 
+    flex: 1 0;
+}
+
+.content > div {
+    padding-top: 2rem;
+}
