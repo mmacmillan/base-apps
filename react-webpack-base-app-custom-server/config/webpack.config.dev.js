@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 
@@ -11,9 +12,10 @@ module.exports = {
 
 
     //** entry point; string for a main.js, object for individual bundles by keynae
-    entry: {
-        app: './src/app.js'
-    },
+    entry: [
+        'webpack-hot-middleware/client',
+        './src/app.js'
+    ],
 
     //** where app is built to
     output: {
@@ -49,7 +51,8 @@ module.exports = {
         new HtmlPlugin({
             template: './src/index.html',
             inject: 'body'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     //** dev server settings
