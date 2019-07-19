@@ -11,7 +11,8 @@
     "install:babel": "npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react",
     "install:react": "npm install --save-dev react react-dom react-hot-loader",
     "build:dev": "webpack --env=dev $npm_package_config_webpack_shared_args",
-    "build:prod": "webpack --env=prod $npm_package_config_webpack_shared_args"
+    "build:prod": "webpack --env=prod $npm_package_config_webpack_shared_args",
+    "start": "ENV=dev node server.js"
   },
   "author": "mikejmacmillan@gmail.com",
   "license": "ISC",
