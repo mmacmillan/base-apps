@@ -4,22 +4,27 @@ const express = require('express'),
     path = require('path'),
     webpack = require('webpack'),
     webpackMiddleware = require('webpack-dev-middleware'),
-    whrMiddleware = require('webpack-hot-middleware'),
-    webpackConfig = require('./webpack.config.js')(process.env.ENV);
+    whrMiddleware = require('webpack-hot-middleware');
 
-console.log('config: ', webpackConfig);
+//** get the environment specific webpack config
+const webpackConfig = require('./webpack.config.js')(process.env.ENV);
 
-let compiler = webpack(webpackConfig);
+//** compile the webpack config
+const compiler = webpack(webpackConfig);
 
 //** setup express stack
 const app = express();
 
+//** add the webpack dev server middleware
 app.use(webpackMiddleware(compiler, { 
     noInfo: true, 
     publicPath: webpackConfig.output.publicPath  
 }));
+
+//** add the webpack hot-module-reload middleware
 app.use(whrMiddleware(compiler));
 
+//** add some common middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist/dev/')));

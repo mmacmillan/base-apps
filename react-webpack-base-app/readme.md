@@ -7,7 +7,7 @@ The following tools serve as the base for the application:
 # Webpack
 https://webpack.js.org/guides/getting-started/
 	
-Webpack is the build-system for the application.  It is responsible for transpiling the ES5/6 source code into a version readable by all browsers, in addition to doing things like minification, code splitting, tree shaking, and so much more (webpack is awesome)
+Webpack is the build-system for the application.  It is responsible for transpiling the ES5/6 source code (via babel) into a version readable by all browsers, in addition to doing things like minification, code splitting, tree shaking, and so much more (webpack is awesome)
 	
 ### Webpack Dev Server
 https://webpack.js.org/configuration/dev-server/

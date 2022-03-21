@@ -26,9 +26,11 @@ class Layout extends React.Component {
     }
 
     updateTitle(e) {
-        //** if defined, trigger a custom event handler on the consumer
-        this.props.onSetTitle && this.props.onSetTitle(e.target.value);
+        //** update the state to reflect the new title
         this.handleChange('title', e.target.value);
+
+        //** if defined, trigger a custom event handler on the consumer
+        this.props.onSetTitle && this.props.onSetTitle(this.state.title);
     }
 
     updateBody(e) { this.handleChange('body', e.target.value) }

@@ -11,7 +11,8 @@ module.exports = {
     },
 
 
-    //** entry point; string for a main.js, object for individual bundles by keynae
+    //** entry point; string for a main.js, object for individual bundles by keynae; since we're using a custom
+    //** server, webpack-hot-middleware/client has to be our entrypoint, to bootstrap HMR
     entry: [
         'webpack-hot-middleware/client',
         './src/app.js'

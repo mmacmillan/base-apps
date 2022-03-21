@@ -9,7 +9,6 @@
   "scripts": {
     "install:webpack": "npm install --save-dev webpack webpack-cli",
     "install:babel": "npm install --save-dev babel-loader @babel/core @babel/preset-env",
-
     "build:dev": "webpack --env=dev $npm_package_config_webpack_shared_args",
     "build:prod": "webpack --env=prod $npm_package_config_webpack_shared_args"
   },
