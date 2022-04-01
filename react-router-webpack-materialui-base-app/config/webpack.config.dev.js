@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 
@@ -12,7 +13,7 @@ module.exports = {
 
     //** entry point; string for a main.js, object for individual bundles by keynae
     entry: {
-        app: './src/app.js'
+        app: ['webpack-hot-middleware/client', './src/pages/app.js']
     },
 
     //** where app is built to
@@ -36,6 +37,28 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+
+            //** make sure any fonts we encounter end up in /fonts
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: './fonts/[name].[ext]'
+                    }
+                }]
+            },
+
+            //** make sure any static images we encounter end up in /g
+            {
+                test: /\.(png|jpg|jpeg|gif)/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: './g/[name].[ext]'
+                    }
+                }]
             }
         ]
     },
@@ -47,9 +70,12 @@ module.exports = {
         //** injects all webpack bundles (including hashed names), into index.html; can minify and other things too
         //** https://github.com/jantimon/html-webpack-plugin#options
         new HtmlPlugin({
-            template: './src/index.html',
+            template: './src/pages/app.html',
+            filename: 'index.html',
+            chunks: ['app'],
             inject: 'body'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
 
     //** dev server settings
