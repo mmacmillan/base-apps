@@ -10,7 +10,7 @@ module.exports = {
     },
 
     entry: {
-        app: './src/js/app.js'
+        app: './src/app.js'
     },
 
     output: {
@@ -29,11 +29,18 @@ module.exports = {
                 loader: ['babel-loader']
             },
 
-            //** this is for bundling the css with the javascript; it will minifiy, etc.  it also allows you to include it via "import css from './css/global.css' (ex)
+            //** this is for bundling the css with the javascript; it will minifiy, etc.  it also allows you to include it via "import css from './css/global.css' (ex), and enables css modules
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: true
+                    }
+                }]
             },
+
 
             //** make sure any fonts we encounter end up in /fonts
             {
@@ -64,7 +71,7 @@ module.exports = {
         // injects all webpack bundles (including hashed names), into index.html; can minify and other things too
         // https://github.com/jantimon/html-webpack-plugin#options
         new HtmlPlugin({
-            template: './src/index.html',
+            template: './src/pages/app.html',
             inject: 'body'
         })
     ]
