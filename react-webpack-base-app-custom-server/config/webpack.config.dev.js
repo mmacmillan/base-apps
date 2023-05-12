@@ -39,6 +39,29 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+
+            //** make sure any fonts we encounter end up in /fonts
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: './fonts/[name].[ext]'
+
+                    }
+                }]
+            },
+
+            //** make sure any static images we encounter end up in /g
+            {
+                test: /\.(png|jpg|jpeg|gif)/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: './g/[name].[ext]'
+                    }
+                }]
             }
         ]
     },
@@ -54,14 +77,6 @@ module.exports = {
             inject: 'body'
         }),
         new webpack.HotModuleReplacementPlugin()
-    ],
-
-    //** dev server settings
-    devServer: {
-        contentBase: path.join(__dirname, 'dist', 'dev'),
-        port: 9012,
-        open: true, //** open the browser when we start
-        overlay: false, //** overlay any compile warnings in the browser window
-        hot: true //** enable HMR
-    }
+    ]
 }
+
